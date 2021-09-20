@@ -26,6 +26,6 @@ app.use(morgan("dev"))
 app.use('/documento', rotas.documento)
 app.use('/usuario', rotas.usuario)
 
-app.listen(3000)
+module.exports = app;
 
 
