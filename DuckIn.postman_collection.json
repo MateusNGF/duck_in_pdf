@@ -1,0 +1,302 @@
+{
+	"info": {
+		"_postman_id": "bd52a6c7-36da-4ffa-bd33-77e5a3e849b4",
+		"name": "DuckIn",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Document",
+			"item": [
+				{
+					"name": "Upload",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "arquivo",
+									"type": "file",
+									"src": "/F:/Downloads/projeto.pdf"
+								},
+								{
+									"key": "title",
+									"value": "Atividade de plana para faculdade da unifal",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Trabalho de faculdade onde tivemos que trabalhar com atividades de geometria plana.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{address}}/documento/",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"documento",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{address}}/documento/",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"documento",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}/documento/614799474b4b4c0b8f382910",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"documento",
+								"614799474b4b4c0b8f382910"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"teste\",\r\n    \"description\" : \"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}/documento/teste3454",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"documento",
+								"teste3454"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adm List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{address}}/documento/adm",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"documento",
+								"adm"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"adm@gmail.com\",\r\n    \"password\" : \"adm\",\r\n    \"name\" : \"Administrador\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}/usuario/",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"usuario",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"adm@gmail.com\",\r\n    \"password\" : \"adm\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}/usuario/",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"usuario",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsQ2hlY2siOmZhbHNlLCJfaWQiOiI2MTQ0OGYyMDcyNzM2OTYyYTMxOTM2MDYiLCJuYW1lIjoiTWF0ZXVzIE5pY29sYXUiLCJlbWFpbCI6Im5pY29sYXVAZ21haWwuY28iLCJwYXNzd29yZCI6IjQzNCXCqCYqMyIsIkNyZWF0ZWRBdCI6IjIwMjEtMDktMTdUMTI6NTA6MzcuNDc3WiIsIl9fdiI6MH0sImlhdCI6MTYzMTkxMjUzMywiZXhwIjoxNjQ5OTEyNTMzfQ.Zbi07P1OJUOmYfJTRMnL3wFuznSTNHr0Ozn8sZbum9E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}/usuario/",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"usuario",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{address}}/usuario/",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"usuario",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adm_List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{address}}/usuario/adm",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"usuario",
+								"adm"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
