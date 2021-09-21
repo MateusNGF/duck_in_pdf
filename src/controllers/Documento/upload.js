@@ -1,11 +1,28 @@
 const { value, toCompare } = require('../../functions')
 
-const { Documento } = require('../../models')
+const { Documento, Marcador } = require('../../models')
 
 module.exports = async (req, res) => {
     try {
         toCompare.keys(["title", "description", "tags"], req.body)
         value.paramsNull(req.body)
+
+        var  marcadores  = req.body.tags
+        marcadores = marcadores.split(',')
+        var tags = []
+
+        for (let i = 0; i < marcadores.length; i++) {
+            value.hasCharSpacial(marcadores[i])
+            let found = await Marcador.findOne({ name: marcadores[i] })
+            if (found != null) {
+                tags.push({
+                    _id: found._id
+                })
+            } else {
+                var { _id } = await Marcador.create({ name: marcadores[i] })
+                tags.push({_id})
+            }
+        }
 
         value.checkSize(req.body.title, "titulo", 20, 100)
         value.checkSize(req.body.description, "descrição", 50, 200)
@@ -19,7 +36,8 @@ module.exports = async (req, res) => {
             postedBy: req.headers['user']._id,
             name: req.file.originalname,
             key: req.file.filename,
-            size : req.file.size,
+            size: req.file.size,
+            tags
         })
         res.send(upload._id)
 

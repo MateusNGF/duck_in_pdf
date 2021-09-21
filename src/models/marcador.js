@@ -8,14 +8,6 @@ const MarcadorSchema = new mongoose.Schema({
         required: true,
         unique : true,
         index : true
-    },
-    creatBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Usuario'
-    },
-    creatAt: {
-        type: Date,
-        default: Date.now()
     }
 })
 

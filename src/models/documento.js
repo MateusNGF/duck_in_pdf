@@ -38,10 +38,6 @@ DocumentoSchema.pre('save', function (){
     }
 })
 
-DocumentoSchema.pre('remove', function () {
-    console.log("Antes de deletar")
-})
-
 DocumentoSchema.set({ 'autoIndex': false })
 
 module.exports = mongoose.model("Documento", DocumentoSchema)
