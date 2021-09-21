@@ -4,7 +4,7 @@ const { Documento } = require('../../models')
 
 module.exports = async (req, res) => {
     try {
-        toCompare.keys(["title", "description"], req.body)
+        toCompare.keys(["title", "description", "tags"], req.body)
         value.paramsNull(req.body)
 
         value.checkSize(req.body.title, "titulo", 20, 100)
@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
 
         value.hasCharSpacial(req.body.title)
         value.hasCharSpacial(req.body.description)
-
+        
         var upload = await Documento.create({
             title: req.body.title,
             description: req.body.description,

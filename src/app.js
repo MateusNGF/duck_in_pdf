@@ -14,7 +14,7 @@ mongoose.connect(
         .replace("<password>", process.env.DB_PASS)
         .replace("<database>", process.env.DB_COLLETIONS),
     {
-        useNewUrlParser : true
+        useNewUrlParser: true
     }
 )
 
