@@ -23,7 +23,12 @@ const DocumentoSchema = new mongoose.Schema({
         index : true
     }],
     reputation : {
-        likes: Number,
+        likes: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref : 'Usuario'
+            }
+        ],
         comments: [{
             content: String,
             postedBy: {

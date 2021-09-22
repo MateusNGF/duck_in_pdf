@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const path = require('path')
 const morgan = require('morgan')
 const app = express()
-
+const {jwt} = require('./functions')
 const rotas = require('./routes')
 
 mongoose.connect(
@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp', 'uploads')))
 app.use(morgan("dev"))
 
-app.use('/documento', rotas.documento)
+app.use('/documento', jwt.verify, rotas.documento)
 app.use('/usuario', rotas.usuario)
 
 module.exports = app;
