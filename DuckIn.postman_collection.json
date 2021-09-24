@@ -9,93 +9,6 @@
 			"name": "Document",
 			"item": [
 				{
-					"name": "Interactions",
-					"item": [
-						{
-							"name": "Comment",
-							"item": [
-								{
-									"name": "create",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"url": {
-											"raw": "{{address}}/documento/comment",
-											"host": [
-												"{{address}}"
-											],
-											"path": [
-												"documento",
-												"comment"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "update",
-									"request": {
-										"method": "PUT",
-										"header": [],
-										"url": {
-											"raw": "{{address}}/documento/comment",
-											"host": [
-												"{{address}}"
-											],
-											"path": [
-												"documento",
-												"comment"
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "delete",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{address}}/documento/comment",
-											"host": [
-												"{{address}}"
-											],
-											"path": [
-												"documento",
-												"comment"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
-							"name": "Vote",
-							"item": [
-								{
-									"name": "add",
-									"request": {
-										"method": "POST",
-										"header": [],
-										"url": null
-									},
-									"response": []
-								},
-								{
-									"name": "remove",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": null
-									},
-									"response": []
-								}
-							]
-						}
-					]
-				},
-				{
 					"name": "Upload",
 					"request": {
 						"method": "POST",
@@ -122,11 +35,6 @@
 								{
 									"key": "description",
 									"value": "Trabalho de faculdade onde tivemos que trabalhar com atividades de geometria plana.",
-									"type": "text"
-								},
-								{
-									"key": "tags",
-									"value": "religião, ateismo, fada madrinha",
 									"type": "text"
 								}
 							]

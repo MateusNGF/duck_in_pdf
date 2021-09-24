@@ -3,15 +3,15 @@ const http = require('http')
 const app = require('../src/app')
 const tratamento = require('./tratamento')
 
-process.env.APP_URL_PORT = tratamento.normalizePort(process.env.APP_URL_PORT || '3000')
+const port = tratamento.normalizePort(process.env.PORT || '3000')
 
-app.set('port', process.env.APP_URL_PORT)
+app.set('port', port)
 
 const server = http.createServer(app);
 
-server.listen(process.env.APP_URL_PORT, () => {
-    console.log(`===> SERVIDOR ONLINE : ${process.env.APP_URL_PORT} <===`)
+server.listen(port, () => {
+    console.log(`===> SERVIDOR ONLINE : ${port} <===`)
 });
 
-server.on('error', (error) => tratamento.onError(error, process.env.APP_URL_PORT))
+server.on('error', (error) => tratamento.onError(error, port))
 server.on('listening', () => tratamento.onListening(server))

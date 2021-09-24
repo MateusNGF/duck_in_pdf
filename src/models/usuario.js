@@ -3,16 +3,8 @@ const mongoose = require('mongoose')
 
 const UsuarioSchema = new mongoose.Schema({
     name: String,
-    email: {
-        type: String,
-        unique : true,
-        index : true
-    },
+    email: String,
     password: String,
-    checkEmail: {
-        type: Boolean,
-        default : false
-    },
     creatAt: {
         type: Date,
         default: Date.now()
@@ -23,6 +15,5 @@ const UsuarioSchema = new mongoose.Schema({
     },
 })
 
-UsuarioSchema.set({ 'autoIndex': false })
 
 module.exports = mongoose.model("Usuario", UsuarioSchema)
