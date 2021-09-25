@@ -1,4 +1,4 @@
 module.exports = {
-    "comentar": require('./comentar'),
-    "votar"  :require('./votar')
+    "comentario" : require('./comentario'),
+    "voto" : require('./voto'),
 }

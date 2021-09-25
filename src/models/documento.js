@@ -22,21 +22,28 @@ const DocumentoSchema = new mongoose.Schema({
         ref: 'Marcador',
         index : true
     }],
-    reputation : {
-        likes: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref : 'Usuario'
-            }
-        ],
-        comments: [{
-            content: String,
+    votes: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Usuario'
+    }],
+    comments: [{
+            content: {
+                type: String,
+                required: true
+            },
             postedBy: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'Usuario'
-            }
-        }]
-    },
+            },
+            creatAt: {
+                type: Date,
+                default: Date.now()
+            },
+            updateAt: {
+                type: Date,
+                default: Date.now()
+            },
+        }],
     creatAt: {
         type: Date,
         default : Date.now()
