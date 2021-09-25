@@ -1,16 +1,42 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
 
+let URL_APP = `${process.env.APP_URL_DOMAIN}:${process.env.APP_URL_PORT}`
+
 const DocumentoSchema = new mongoose.Schema({
-    title: String,
-    description: String,
+    title: { type: String, required: true},
+    description: { type: String, required: true},
     postedBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Usuario'
     },
     name: String,
-    key: String,
+    key: {
+        type: String,
+        unique : true
+    },
     size: Number,
     url: String,
+    tags : [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Marcador',
+        index : true
+    }],
+    reputation : {
+        likes: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref : 'Usuario'
+            }
+        ],
+        comments: [{
+            content: String,
+            postedBy: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Usuario'
+            }
+        }]
+    },
     creatAt: {
         type: Date,
         default : Date.now()
@@ -23,9 +49,10 @@ const DocumentoSchema = new mongoose.Schema({
 
 DocumentoSchema.pre('save', function (){
     if (!this.url) {
-        this.url = `${process.env.URL_APP}/files/${this.key}`
+        this.url = `${URL_APP}/files/${this.key}`
     }
 })
 
+DocumentoSchema.set({ 'autoIndex': false })
 
 module.exports = mongoose.model("Documento", DocumentoSchema)
