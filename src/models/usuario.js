@@ -13,6 +13,10 @@ const UsuarioSchema = new mongoose.Schema({
         type: Boolean,
         default : false
     },
+    access_level: {
+        type: Number,
+        default : 0  
+    },
     creatAt: {
         type: Date,
         default: Date.now()
