@@ -1,4 +1,5 @@
 module.exports = {
     "Documento" : require('./documento'),
-    "Usuario" : require('./usuario')
+    "Usuario": require('./usuario'),
+    "Marcador" : require('./marcador')
 }

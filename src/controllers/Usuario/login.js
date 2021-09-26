@@ -1,27 +1,35 @@
-const { toCompare, value, jwt } = require("../../functions")
+require('dotenv').config()
+
+const { toCompare, value, jwt, sendError, email } = require("../../functions")
 const { Usuario } = require("../../models")
 
 module.exports = async (req, res) => {
     try {
-        toCompare.keys(["email", "password"], req.body)
         value.paramsNull(req.body)
-        
+        toCompare.keys(["email", "password"], req.body)
+        email.isEmail(req.body.email)
+
         var user = await Usuario.findOne({ email: req.body.email })
 
         if (value.isNull(user)) {
-            throw new Error(`Usuario ${req.body.email} não encontrado`)
+            throw { message: `Usuario ${req.body.email} não encontrado` }
         } else {
             if (user.password !== req.body.password) {
-                throw new Error(`Senha invalida`)
+                throw { message: `Senha invalida` }
             } else {
-                res.status(200).send(jwt.create({
-                    _id : user._id,
-                    email: user.email,
-                    name: user.name
-                },  "3h"))
+                let { name, _id, email, access_level } = user
+                res.status(200).json({
+                    status: true,
+                    token: jwt.create({
+                        _id,
+                        email,
+                        access_level,
+                        name,
+                    }, process.env.JWT_TIME_EXPIRENCE).toString()
+                })
             }
         }
     } catch (erro) {
-        res.status(500).send(`Erro : ${erro.message}`)
+        sendError(res, erro)
     }
 }
