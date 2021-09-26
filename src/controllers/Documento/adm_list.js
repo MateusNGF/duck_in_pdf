@@ -1,3 +1,4 @@
+const {Documento} = require('../../models')
 module.exports = async (req, res) => {
-    res.send("ADM LIST")
+    res.status(200).json(await Documento.find())
 }
