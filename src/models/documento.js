@@ -24,7 +24,7 @@ const DocumentoSchema = new mongoose.Schema({
     }],
     votes: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Usuario'
+        ref: 'Usuario',
     }],
     comments: [{
             content: {
@@ -33,7 +33,8 @@ const DocumentoSchema = new mongoose.Schema({
             },
             postedBy: {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: 'Usuario'
+                ref: 'Usuario',
+                required : true
             },
             creatAt: {
                 type: Date,

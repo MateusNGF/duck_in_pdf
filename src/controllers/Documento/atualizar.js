@@ -27,15 +27,3 @@ module.exports = async (req, res) => {
         sendError(res, erro)
     }
 }
-
-
-
-
-// Documento.findOne({ _id: req.params.id, postedBy: req.headers['user']._id }).then(doc => {
-//     if (value.isNull(doc)) throw { message: `Documento original não encontrado` }
-
-//     Documento.findByIdAndUpdate(req.params.id, req.body).then(s => {
-//         if (value.isNull(s)) throw { message: "Não foi possivel atualizar" }
-//         res.status(200).json({ status: true })
-//     })
-// })
