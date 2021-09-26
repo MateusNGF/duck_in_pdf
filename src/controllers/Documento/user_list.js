@@ -1,9 +1,10 @@
+const { sendError } = require("../../functions")
 const { Documento } = require("../../models")
 
-module.exports = async (req, res) => {
-    try {
-        res.status(200).json(await Documento.find({ postedBy: req.headers['user']._id }))
-    } catch (erro) {
-        res.status(500).send(`Erro : ${erro.message}`)
-    }
+module.exports = (req, res) => {
+    Documento.find({ postedBy: req.headers['user']._id }).then(docs => {
+        res.status(200).json(docs)
+    }).catch(e => {
+        sendError(res, e)
+    })
 }

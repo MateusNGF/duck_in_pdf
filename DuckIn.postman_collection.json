@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bd52a6c7-36da-4ffa-bd33-77e5a3e849b4",
+		"_postman_id": "ff3cf166-3dfb-444f-a58f-c8c18c642629",
 		"name": "DuckIn",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,6 +8,142 @@
 		{
 			"name": "Document",
 			"item": [
+				{
+					"name": "Interactions",
+					"item": [
+						{
+							"name": "Comment",
+							"item": [
+								{
+									"name": "create",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-access-token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"_idPost\" : \"614f289f687ac4ebfd716a4e\",\r\n    \"content\" : \"Muito bom essa postagem\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{address}}/documento/int/comment/",
+											"host": [
+												"{{address}}"
+											],
+											"path": [
+												"documento",
+												"int",
+												"comment",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "x-access-token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{address}}/documento/int/comment/",
+											"host": [
+												"{{address}}"
+											],
+											"path": [
+												"documento",
+												"int",
+												"comment",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "x-access-token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{address}}/documento/int/comment/",
+											"host": [
+												"{{address}}"
+											],
+											"path": [
+												"documento",
+												"int",
+												"comment",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Vote",
+							"item": [
+								{
+									"name": "add",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-access-token",
+												"value": "{{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"document\" : \"614fa89d25c25623a68518c9\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{address}}/documento/int/vote",
+											"host": [
+												"{{address}}"
+											],
+											"path": [
+												"documento",
+												"int",
+												"vote"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
 				{
 					"name": "Upload",
 					"request": {
@@ -35,6 +171,11 @@
 								{
 									"key": "description",
 									"value": "Trabalho de faculdade onde tivemos que trabalhar com atividades de geometria plana.",
+									"type": "text"
+								},
+								{
+									"key": "tags",
+									"value": "religião, ateismo, fada madrinha",
 									"type": "text"
 								}
 							]
@@ -170,7 +311,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"adm@gmail.com\",\r\n    \"password\" : \"adm\",\r\n    \"name\" : \"Administrador\"\r\n}",
+							"raw": "{\r\n    \"email\" : \"adm@gmail.com\",\r\n    \"password\" : \"adm\",\r\n    \"name\" : \"Administrador | CEO \"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -223,16 +364,6 @@
 				{
 					"name": "Delete",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsQ2hlY2siOmZhbHNlLCJfaWQiOiI2MTQ0OGYyMDcyNzM2OTYyYTMxOTM2MDYiLCJuYW1lIjoiTWF0ZXVzIE5pY29sYXUiLCJlbWFpbCI6Im5pY29sYXVAZ21haWwuY28iLCJwYXNzd29yZCI6IjQzNCXCqCYqMyIsIkNyZWF0ZWRBdCI6IjIwMjEtMDktMTdUMTI6NTA6MzcuNDc3WiIsIl9fdiI6MH0sImlhdCI6MTYzMTkxMjUzMywiZXhwIjoxNjQ5OTEyNTMzfQ.Zbi07P1OJUOmYfJTRMnL3wFuznSTNHr0Ozn8sZbum9E",
-									"type": "string"
-								}
-							]
-						},
 						"method": "DELETE",
 						"header": [
 							{
@@ -241,6 +372,15 @@
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\" : \"addm\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{address}}/usuario/",
 							"host": [

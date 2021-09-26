@@ -9,25 +9,25 @@ const value = require('./Value')
  */
 
 exports.keys = (req = [], obj = {}, security = true) => {
-    if (value.isNull(req)) { throw new Error(`É preciso informar os requisitos para validação`) }
-    if (value.isNull(obj)) { throw new Error(`É preciso informar os dados para validação`) }
+    if (value.isNull(req)) { throw {dev : true,message: `É preciso informar os requisitos para validação`}}
+    if (value.isNull(obj)) { throw {dev : true, message: `É preciso informar os dados para validação`} }
     
     if (security) {
         for (let param in Object.keys(req)) {
             if (!Object.keys(obj).find(element => {
                 if (element.toLocaleLowerCase() == req[param].toLocaleLowerCase()) { return true }
-            })) { throw new Error(`O parametro ${req[param]} é necessario`) }
+            })) { throw { message: `É necessario informar a(o) ${req[param]}`} }
         }
         for (let param in obj) {
             if (!req.find(element => element.toLowerCase() == param.toLowerCase()))
-              throw new Error(`O parametro "${param}" é inesperado`)
+                throw { message: `O(a) parametro "${param}" é inesperado`}
         }
         return true
     } else {
         for (let param in Object.keys(req)) {
             if (!Object.keys(obj).find(element => {
                 if (element.toLocaleLowerCase() == req[param].toLocaleLowerCase()) { return true }
-            })) { throw new Error(`O parametro ${req[param]} é necessario`) }
+            })) throw { message: `É necessario informar a(o) ${req[param]}`}
         }
     }
 }

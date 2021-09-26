@@ -9,9 +9,7 @@ module.exports = {
      */
     hasCharSpacial(text) {
         var expreg = /[\%\$+\@+\$+\!+\$+\$+\&+\¨+\*+\{+\}+\[+\]+\'+\´\`\^\~\/\;']/gi
-        if (expreg.test(text)) {
-            throw new Error(`Não é permitido caracteres especiais`)
-        }
+        if (expreg.test(text)) {throw { message: `Não é permitido caracteres especiais`}}
         return false   
     },
 
@@ -36,10 +34,10 @@ module.exports = {
      * @returns { Exception } Exception Error para vazio
      */
     paramsNull(obj) {
-        if (this.isNull(obj)) { throw new Error("É necessario informar um valor") }
+        if (this.isNull(obj)) { throw { message : "É necessario informar os dados"} }
         for (var param in obj) {
             if (this.isNull(obj[param])) {
-                throw new Error(`O parametro "${param}" é necessita ser informado`)
+                throw { message: `É necessario informar o(a) ${param}`}
             }
         }
         return false
@@ -57,10 +55,10 @@ module.exports = {
       */
     checkSize(string = '', inputName = inputName ? inputName : "", min = 20, max = 200) {
         if (string.length < min) {
-            throw new Error(`O texto ${inputName} é muito curto, minimo ${min}`)
+            throw {message : `O texto da(o) ${inputName} é muito curto, minimo ${min}`} 
         }
         if (string.length > max) {
-            throw new Error(`O texto ${inputName} é muito longo, máximo ${max}`)
+            throw { message: `O texto da(o) ${inputName} é muito longo, máximo ${max}`}
         }
         return true
     }

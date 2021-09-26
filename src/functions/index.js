@@ -3,4 +3,5 @@ module.exports = {
     "value": require('./value'),
     "jwt": require('./jwt'),
     "email": require('./email'),
+    "sendError" : require('./sendError')
 }

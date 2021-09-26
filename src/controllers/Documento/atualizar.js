@@ -1,29 +1,41 @@
-const { toCompare, value } = require("../../functions")
+require('dotenv').config()
+
+const { toCompare, value, sendError } = require("../../functions")
 const { Documento } = require("../../models")
 
 module.exports = async (req, res) => {
     try {
-        toCompare.keys(['title', 'description'], req.body)
         value.paramsNull(req.body)
-        
-        value.checkSize(req.body.title, "titulo", 20, 100)
-        value.checkSize(req.body.description, "descrição", 50, 200)
+        toCompare.keys(['title', 'description'], req.body)
+
+        value.checkSize(req.body.title, "titulo", process.env.TITLE_MIN_SIZE, process.env.TITLE_MAX_SIZE)
+        value.checkSize(req.body.description, "descrição", process.env.DESC_MIN_SIZE, process.env.DESC_MAX_SIZE)
 
         value.hasCharSpacial(req.body.title)
         value.hasCharSpacial(req.body.description)
 
-        if (value.isNull(await Documento.findOne({ _id: req.params.id, postedBy: req.headers['user']._id }))) {
-            throw new Error(`Postagem original não encontrada`)
+        if (value.isNull(await Documento.findByIdAndUpdate({
+            _id: req.params.id,
+            postedBy: req.headers['user']._id
+        }, req.body))) {
+            throw { message: "Nenhum documento encontrado" }
         } else {
-            Documento.findByIdAndUpdate(req.params.id, req.body).then(s => {
-                if (value.isNull(s)) throw new Error("Não foi possivel atualizar")
-                res.status(200).send(true)
-            })
+            res.status(200).json({ status: true })
         }
+
     } catch (erro) {
-        if (erro.path == "_id") {
-            res.status(500).send(`Erro : ID da postagem é invalido.`)
-        }
-        res.status(500).send(`Erro : ${erro.message}`)
+        sendError(res, erro)
     }
 }
+
+
+
+
+// Documento.findOne({ _id: req.params.id, postedBy: req.headers['user']._id }).then(doc => {
+//     if (value.isNull(doc)) throw { message: `Documento original não encontrado` }
+
+//     Documento.findByIdAndUpdate(req.params.id, req.body).then(s => {
+//         if (value.isNull(s)) throw { message: "Não foi possivel atualizar" }
+//         res.status(200).json({ status: true })
+//     })
+// })

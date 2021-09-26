@@ -12,7 +12,10 @@ module.exports = {
         filename: (req, file, cb) => {
             crypto.randomBytes(16, (err, hash) => {
                 if (err) { cb(err, null) }
-                cb(null, `${hash.toString('hex')}-${file.originalname}`)
+                cb(null, `${hash.toString('hex')}-${file.originalname
+                    .toLowerCase()
+                    .replaceAll(" ", "-")
+                    .trim()}`)
             })
         }
     }),

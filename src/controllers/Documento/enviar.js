@@ -1,13 +1,12 @@
-const { value, toCompare } = require('../../functions')
-
+const { value, toCompare, sendError } = require('../../functions')
 const { Documento, Marcador } = require('../../models')
 
 module.exports = async (req, res) => {
     try {
-        toCompare.keys(["title", "description", "tags"], req.body)
         value.paramsNull(req.body)
+        toCompare.keys(["title", "description", "tags"], req.body)
 
-        var  marcadores  = req.body.tags
+        var marcadores = req.body.tags
         marcadores = marcadores.split(',')
         var tags = []
 
@@ -20,7 +19,7 @@ module.exports = async (req, res) => {
                 })
             } else {
                 var { _id } = await Marcador.create({ name: marcadores[i] })
-                tags.push({_id})
+                tags.push({ _id })
             }
         }
 
@@ -29,7 +28,7 @@ module.exports = async (req, res) => {
 
         value.hasCharSpacial(req.body.title)
         value.hasCharSpacial(req.body.description)
-        
+
         var upload = await Documento.create({
             title: req.body.title,
             description: req.body.description,
@@ -39,9 +38,12 @@ module.exports = async (req, res) => {
             size: req.file.size,
             tags
         })
-        res.send(upload._id)
+        res.json({
+            status: true,
+            _id: upload._id
+        })
 
     } catch (erro) {
-        res.status(501).send(`Erro : ${erro.message}`)
+        sendError(res, erro)
     }
 }

@@ -1,21 +1,20 @@
-const { value , toCompare} = require("../../functions")
+const { value , toCompare, sendError} = require("../../functions")
 const { Usuario } = require("../../models")
 
 module.exports = async (req, res) => {
     try {
-        toCompare.keys(['name', 'password'], req.body)
         value.paramsNull(req.body)
+        toCompare.keys(['name', 'password'], req.body)
 
         value.hasCharSpacial(req.body.name)
-        value.checkSize(req.body.name, "nome", 15, 70)
+        value.checkSize(req.body.name, "name", process.env.NAME_MIN_SIZE, process.env.NAME_MAX_SIZE)
 
-        Usuario.findByIdAndUpdate(req.headers['user']._id, req.body).then(s => {
-            if (value.isNull(s)) {
-                throw new Error(`Erro ao atualizar o usuario`)
-            }
-            res.status(200).send(true)
-        })
+        if (value.isNull(await Usuario.findByIdAndUpdate({"_id" : req.headers['user']._id}, req.body))) {
+            throw { message : "Não foi possivel atualziar."}
+        } else {
+            res.status(200).json({ status : true})
+        }
     } catch (erro) {
-        res.status(500).send(`Erro : ${erro.message}`)
+       sendError(res, erro)
     }
 }
