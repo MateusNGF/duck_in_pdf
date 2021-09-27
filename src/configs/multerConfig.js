@@ -27,7 +27,7 @@ module.exports = {
         if (mimetype && extname) {
             return cb(null, true);
         } else {
-            cb(new Error('Tipo de arquivo não suportado'));
+            cb('Tipo de arquivo não suportado');
         }
     }
 }

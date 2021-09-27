@@ -10,6 +10,7 @@ module.exports = (res, erro) => {
         erro.message = `ID da postagem é invalido ou irregular.`
     }
 
+    console.log(typeof Error erro)
     res.status(erro.code ? erro.code : 200).json({
         status: false,
         message: erro.message ? erro.message : "Erro desconhecido"
