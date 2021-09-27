@@ -1,4 +1,4 @@
 module.exports = {
-    "documento" : require("./documento"),
-    "usuario" : require("./usuario"),
+    "documento"     : require("./documento"),
+    "usuario"       : require("./usuario"),
 }

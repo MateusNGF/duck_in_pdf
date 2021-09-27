@@ -27,7 +27,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"_idDocument\" : \"6150d4bddb5ef295013d6b12\",\r\n    \"content\" : \"Buceta gosmenta cabeluda\" \r\n}",
+											"raw": "{\r\n    \"_idDocument\" : \"6151c14eff2ef77055dc9ab6\",\r\n    \"content\" : \"Buceta gosmenta cabeluda\" \r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -62,7 +62,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"_idDocument\" : \"6150d4bddb5ef295013d6b12\",\r\n    \"_idComment\" : \"6150d5e4db5ef295013d6b48\",\r\n    \"content\" : \"Atualizando meu chapaaaa\"\r\n}",
+											"raw": "{\r\n    \"_idDocument\" : \"6151c14eff2ef77055dc9ab6\",\r\n    \"_idComment\" : \"6151c4fa197cf3c77c617012\",\r\n    \"content\" : \"Atualizando meu chapaaaa\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -97,7 +97,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"_idDocument\" : \"6150d4bddb5ef295013d6b12\",\r\n    \"_idComment\" : \"6150d5e4db5ef295013d6b48\"\r\n}",
+											"raw": "{\r\n    \"_idDocument\" : \"6151c14eff2ef77055dc9ab6\",\r\n    \"_idComment\" : \"6151c4fa197cf3c77c617012\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -137,7 +137,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"document\" : \"6150d4bddb5ef295013d6b12\"\r\n}",
+											"raw": "{\r\n    \"document\" : \"6151c14eff2ef77055dc9ab6\"\r\n} ",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -303,7 +303,13 @@
 					"name": "Adm List",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{address}}/documento/adm",
 							"host": [
