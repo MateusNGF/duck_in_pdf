@@ -6,6 +6,7 @@ const DenunciaShema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Documento",
     index: true,
+    unique : true
   },
   complaints: [
     {
