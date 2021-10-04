@@ -1,8 +1,8 @@
 
-![Badge](https://img.shields.io/static/v1?label=nodejs&message=framework&color=gree&style=for-the-badge&logo=node)
+![Badge](https://img.shields.io/static/v1?label=nodejs&message=framework&color=gree&style=for-the-badge&logo=nodedotjs)
 ![Badge](https://img.shields.io/static/v1?label=mongoose&message=framework&color=pink&style=for-the-badge&logo=mongoose)
 ![Badge](https://img.shields.io/static/v1?label=postman&message=software&color=red&style=for-the-badge&logo=postman)
-![Badge](https://img.shields.io/static/v1?label=vscode&message=software&color=blue&style=for-the-badge&logo=vscode)
+![Badge](https://img.shields.io/static/v1?label=vscode&message=software&color=blue&style=for-the-badge&logo=visualstudiocode)
 ![Badge](https://img.shields.io/static/v1?label=git&message=software&color=orange&style=for-the-badge&logo=git)
 > ![js](https://img.shields.io/github/languages/top/MateusNGF/Duck-InV2_backend?style=flat-square)
 > ![size](https://img.shields.io/github/languages/code-size/MateusNGF/Duck-InV2_backend?style=flat-square)
