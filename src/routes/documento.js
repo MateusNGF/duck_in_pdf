@@ -13,8 +13,7 @@ rotas.delete('/:id',  jwt.verify, controllDoc.delete)
 rotas.put('/:id',     jwt.verify, controllDoc.update)
 
 // Lista as postagens de todos os usuarios 
-rotas.get('/adm', jwt.verifyAdm, controllDoc.adm_list)
-
+rotas.get('/adm', controllDoc.adm_list)
 
 rotas.post('/int/comment*',    jwt.verify, controllInt.comentario.criar)
 rotas.delete('/int/comment*',  jwt.verify, controllInt.comentario.deletar)

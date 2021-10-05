@@ -24,8 +24,7 @@ const DocumentoSchema = new mongoose.Schema({
     }],
     votes: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Usuario',
-        unique : true
+        ref: 'Usuario'
     }],
     comments: [{
             content: {

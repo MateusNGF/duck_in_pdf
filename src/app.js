@@ -29,8 +29,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp', 'uploads')))
 app.use(morgan("dev"))
 
-app.use('/documento', rotas.documento)
-app.use('/usuario', rotas.usuario)
+app.use('/document', rotas.documento)
+app.use('/user', rotas.usuario)
 
 module.exports = app;
 
