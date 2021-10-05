@@ -15,8 +15,11 @@ module.exports = async (req, res, next) => {
        
         doc.comments.push({
             content: req.body.content,
-            postedBy: req.headers['user']._id
-        })
+            postedBy: {
+                _id: req.headers["user"]._id,
+                name : req.headers["user"].name
+            },
+        });
 
         doc.save(function (e) {
             if (e) throw { dev : true, message: e.message }

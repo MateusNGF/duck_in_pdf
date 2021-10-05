@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
 
         if (value.isNull(await Documento.findByIdAndUpdate({
             _id: req.params.id,
-            postedBy: req.headers['user']._id
+            'postedBy._id': req.headers['user']._id
         }, req.body))) {
             throw { message: "Nenhum documento encontrado" }
         } else {

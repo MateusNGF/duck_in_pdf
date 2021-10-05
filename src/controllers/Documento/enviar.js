@@ -15,11 +15,12 @@ module.exports = async (req, res) => {
             let found = await Marcador.findOne({ name: marcadores[i] })
             if (found != null) {
                 tags.push({
-                    _id: found._id
+                    _id: found._id,
+                    name : found.name
                 })
             } else {
                 var { _id } = await Marcador.create({ name: marcadores[i] })
-                tags.push({ _id })
+                tags.push({ _id, name: marcadores[i] });
             }
         }
 
@@ -32,12 +33,15 @@ module.exports = async (req, res) => {
         var upload = await Documento.create({
             title: req.body.title,
             description: req.body.description,
-            postedBy: req.headers['user']._id,
+            postedBy: {
+                _id: req.headers["user"]._id,
+                name: req.headers["user"].name,
+            },
             name: req.file.originalname,
             key: req.file.filename,
             size: req.file.size,
-            tags
-        })
+            tags,
+        });
         res.json({
             status: true,
             _id: upload._id
