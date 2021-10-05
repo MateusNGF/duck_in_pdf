@@ -1,8 +1,6 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 
-let URL_APP = `${process.env.APP_URL_DOMAIN}:${process.env.APP_URL_PORT}`;
-
 const DocumentoSchema = new mongoose.Schema({
     title: { type: String, required: true },
     description: { type: String, required: true },
@@ -84,7 +82,7 @@ const DocumentoSchema = new mongoose.Schema({
 
 DocumentoSchema.pre("save", function () {
     if (!this.url) {
-        this.url = `${URL_APP}/files/${this.key}`;
+        this.url = `/files/${this.key}`;
     }
 });
 
