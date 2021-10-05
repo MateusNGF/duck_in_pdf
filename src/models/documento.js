@@ -1,66 +1,93 @@
-require('dotenv').config()
-const mongoose = require('mongoose')
+require("dotenv").config();
+const mongoose = require("mongoose");
 
-let URL_APP = `${process.env.APP_URL_DOMAIN}:${process.env.APP_URL_PORT}`
+let URL_APP = `${process.env.APP_URL_DOMAIN}:${process.env.APP_URL_PORT}`;
 
 const DocumentoSchema = new mongoose.Schema({
-    title: { type: String, required: true},
-    description: { type: String, required: true},
+    title: { type: String, required: true },
+    description: { type: String, required: true },
     postedBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Usuario'
+        _id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Usuario",
+        },
+        name: {
+            type: String,
+            required : true
+        }
     },
     name: String,
     key: {
         type: String,
-        unique : true
+        unique: true,
     },
     size: Number,
     url: String,
-    tags : [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Marcador',
-        index : true
-    }],
-    votes: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Usuario'
-    }],
-    comments: [{
+    tags: [
+        {
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Marcador",
+                index: true,
+            },
+            name: {
+                type: String,
+                required: true,
+                index: true,
+            },
+        },
+    ],
+    votes: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Usuario",
+        },
+    ],
+    comments: [
+        {
             content: {
                 type: String,
-                required: true
+                required: true,
             },
             postedBy: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Usuario',
-                required : true
+                _id: {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: "Usuario",
+                    required: true,
+                },
+                name: {
+                    type: String,
+                    required: true,
+                    index: true,
+                },
+                urlProfile: String,
             },
             creatAt: {
                 type: Date,
-                default: Date.now()
+                default: Date.now(),
             },
             updateAt: {
                 type: Date,
-                default: Date.now()
+                default: Date.now(),
             },
-        }],
+        },
+    ],
     creatAt: {
         type: Date,
-        default : Date.now()
+        default: Date.now(),
     },
     updateAt: {
         type: Date,
-        default: Date.now()
+        default: Date.now(),
     },
-})
+});
 
-DocumentoSchema.pre('save', function (){
+DocumentoSchema.pre("save", function () {
     if (!this.url) {
-        this.url = `${URL_APP}/files/${this.key}`
+        this.url = `${URL_APP}/files/${this.key}`;
     }
-})
+});
 
-DocumentoSchema.set({ 'autoIndex': false })
+DocumentoSchema.set({ autoIndex: false });
 
-module.exports = mongoose.model("Documento", DocumentoSchema)
+module.exports = mongoose.model("Documento", DocumentoSchema);
