@@ -27,7 +27,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"_idDocument\" : \"6151c14eff2ef77055dc9ab6\",\r\n    \"content\" : \"Buceta gosmenta cabeluda\" \r\n}",
+											"raw": "{\r\n    \"_idDocument\" : \"615c5d25a815d64f9c361298\",\r\n    \"content\" : \"PHP é bom e nada muda isso\" \r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -35,12 +35,12 @@
 											}
 										},
 										"url": {
-											"raw": "{{address}}/documento/int/comment/",
+											"raw": "{{address}}/document/int/comment/",
 											"host": [
 												"{{address}}"
 											],
 											"path": [
-												"documento",
+												"document",
 												"int",
 												"comment",
 												""
@@ -62,7 +62,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"_idDocument\" : \"6151c14eff2ef77055dc9ab6\",\r\n    \"_idComment\" : \"6151c4fa197cf3c77c617012\",\r\n    \"content\" : \"Atualizando meu chapaaaa\"\r\n}",
+											"raw": "{\r\n    \"_idDocument\" : \"615c5d25a815d64f9c361298\",\r\n    \"_idComment\" : \"615c6172044dc47b00823af4\",\r\n    \"content\" : \"Atualizando meu chapaaaa\"\r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -70,12 +70,12 @@
 											}
 										},
 										"url": {
-											"raw": "{{address}}/documento/int/comment/",
+											"raw": "{{address}}/document/int/comment/",
 											"host": [
 												"{{address}}"
 											],
 											"path": [
-												"documento",
+												"document",
 												"int",
 												"comment",
 												""
@@ -97,7 +97,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"_idDocument\" : \"6151c14eff2ef77055dc9ab6\",\r\n    \"_idComment\" : \"6151c4fa197cf3c77c617012\"\r\n}",
+											"raw": "{\r\n    \"_idDocument\" : \"615c5d25a815d64f9c361298\",\r\n    \"_idComment\" : \"615c6172044dc47b00823af4\"\r\n    \r\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -105,12 +105,12 @@
 											}
 										},
 										"url": {
-											"raw": "{{address}}/documento/int/comment/",
+											"raw": "{{address}}/document/int/comment/",
 											"host": [
 												"{{address}}"
 											],
 											"path": [
-												"documento",
+												"document",
 												"int",
 												"comment",
 												""
@@ -137,7 +137,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"document\" : \"6151c14eff2ef77055dc9ab6\"\r\n} ",
+											"raw": "{\r\n    \"document\" : \"615c5d25a815d64f9c361298\"\r\n} ",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -145,12 +145,12 @@
 											}
 										},
 										"url": {
-											"raw": "{{address}}/documento/int/vote",
+											"raw": "{{address}}/document/int/vote",
 											"host": [
 												"{{address}}"
 											],
 											"path": [
-												"documento",
+												"document",
 												"int",
 												"vote"
 											]
@@ -179,32 +179,32 @@
 								{
 									"key": "arquivo",
 									"type": "file",
-									"src": "/C:/Users/Mateus/Documents/PROVA A3 DA DISCIPLINA DE PLANA.pdf"
+									"src": "/F:/Downloads/Intro_math.pdf"
 								},
 								{
 									"key": "title",
-									"value": "Atividade de plana para faculdade da unifal",
+									"value": "introdução a matematica de maneira pratica",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "Trabalho de faculdade onde tivemos que trabalhar com atividades de geometria plana.",
+									"value": "introdução a matematica de maneira praticaintrodução a matematica de maneira praticaintrodução a matematica de maneira pratica",
 									"type": "text"
 								},
 								{
 									"key": "tags",
-									"value": "religião, ateismo, fada madrinha",
+									"value": "matematica, função, probabilidade",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{address}}/documento/",
+							"raw": "{{address}}/document/",
 							"host": [
 								"{{address}}"
 							],
 							"path": [
-								"documento",
+								"document",
 								""
 							]
 						}
@@ -230,12 +230,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{address}}/documento/",
+							"raw": "{{address}}/document/",
 							"host": [
 								"{{address}}"
 							],
 							"path": [
-								"documento",
+								"document",
 								""
 							]
 						}
@@ -254,13 +254,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{address}}/documento/614799474b4b4c0b8f382910",
+							"raw": "{{address}}/document/6156f9dc748dcd419d743b4d",
 							"host": [
 								"{{address}}"
 							],
 							"path": [
-								"documento",
-								"614799474b4b4c0b8f382910"
+								"document",
+								"6156f9dc748dcd419d743b4d"
 							]
 						}
 					},
@@ -279,7 +279,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\" : \"teste\",\r\n    \"description\" : \"teste\"\r\n}",
+							"raw": "{\r\n    \"title\" : \"Agora vamos atualizar o titulo\",\r\n    \"description\" : \"Mas lembre-se que o titulo e a descrição possuem um min e um max\"\r\n}\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -287,13 +287,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{address}}/documento/teste3454",
+							"raw": "{{address}}/document/615af7297ee6632ee83d26cb",
 							"host": [
 								"{{address}}"
 							],
 							"path": [
-								"documento",
-								"teste3454"
+								"document",
+								"615af7297ee6632ee83d26cb"
 							]
 						}
 					},
@@ -311,12 +311,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{address}}/documento/adm",
+							"raw": "{{address}}/document/adm",
 							"host": [
 								"{{address}}"
 							],
 							"path": [
-								"documento",
+								"document",
 								"adm"
 							]
 						}
@@ -335,7 +335,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"adm@gmail.com\",\r\n    \"password\" : \"adm\",\r\n    \"name\" : \"Administrador | CEO \"\r\n}",
+							"raw": "    {\r\n        \"email\" : \"cliente@gmail.com\",\r\n        \"password\" : \"cliente\",\r\n        \"name\" : \"Cliente | USER TEST \"\r\n    }\r\n\r\n    ",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -343,13 +343,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{address}}/usuario/",
+							"raw": "{{address}}/user/register",
 							"host": [
 								"{{address}}"
 							],
 							"path": [
-								"usuario",
-								""
+								"user",
+								"register"
 							]
 						}
 					},
@@ -357,11 +357,8 @@
 				},
 				{
 					"name": "Login",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -373,12 +370,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{address}}/usuario/",
+							"raw": "{{address}}/user/access/",
 							"host": [
 								"{{address}}"
 							],
 							"path": [
-								"usuario",
+								"user",
+								"access",
 								""
 							]
 						}
@@ -429,6 +427,15 @@
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Cliente | PRODUTOS IVONE\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{address}}/usuario/",
 							"host": [
@@ -448,12 +455,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{address}}/usuario/adm",
+							"raw": "{{address}}/user/adm",
 							"host": [
 								"{{address}}"
 							],
 							"path": [
-								"usuario",
+								"user",
 								"adm"
 							]
 						}

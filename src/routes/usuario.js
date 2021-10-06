@@ -2,12 +2,15 @@ const rotas         = require('express').Router()
 const controllers   = require('../controllers/Usuario')
 const { jwt }       = require('../functions')
 
-rotas.post('/',               controllers.register)
-rotas.get('/',                controllers.login)
-rotas.delete('/', jwt.verify, controllers.delete)
-rotas.put('/',    jwt.verify, controllers.update)
+rotas.post('/register',             controllers.register)
+rotas.post('/access',               controllers.login)
+rotas.delete('/',       jwt.verify, controllers.delete)
+rotas.put('/',          jwt.verify, controllers.update)
 
-rotas.get('/adm', jwt.verifyAdm, controllers.adm_list)
+
+
+// ROTAS USADAS PELO SISTEMA
+rotas.get('/api', controllers.adm_list)
 
 
 module.exports = rotas

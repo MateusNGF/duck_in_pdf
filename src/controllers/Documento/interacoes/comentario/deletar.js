@@ -11,12 +11,12 @@ module.exports = async (req, res, next) => {
 
         if (value.isNull(
             doc.comments.find(e =>
-                (e.postedBy == req.headers['user']._id && e._id == req.body._idComment)
+                (e.postedBy._id == req.headers['user']._id && e._id == req.body._idComment)
             )
         )){ throw { message : "Comentario não encontrado ou ação não autorizada"}}
 
         doc.comments = doc.comments.filter(function (item) {
-            if (!(item._id == req.body._idComment && item.postedBy == req.headers['user']._id)) {
+            if (!(item._id == req.body._idComment && item.postedBy._id == req.headers['user']._id)) {
                 return item
             }
         })
