@@ -1,5 +1,4 @@
 module.exports = (res, erro = Array) => {
-    console.log(erro)
     if (erro.dev) {
         sendDev(res, erro)
     } else if (erro.code == 11000) {
@@ -16,12 +15,13 @@ function sendUser(res, erro) {
         status: false,
         message: erro.message ? erro.message : "Erro desconhecido"
     })
+    return;
 }
 
 function sendDev(res, erro) {
     console.log({
         type: "ERRO_INTERNO",
-        body : erro.body
+        body : erro
     })
     erro.code = 500
     erro.message = "Erro Interno, consulte o administrador."
