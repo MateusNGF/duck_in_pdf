@@ -3,7 +3,7 @@ const http = require('http')
 const app = require('../src/app')
 const tratamento = require('./tratamento')
 
-process.env.PORT = tratamento.normalizePort(process.env.PORT || "8080");
+process.env.PORT = tratamento.normalizePort(process.env.PORT || "3000");
 app.set('port', process.env.PORT)
 
 const server = http.createServer(app);
