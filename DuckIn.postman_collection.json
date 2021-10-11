@@ -179,7 +179,7 @@
 								{
 									"key": "arquivo",
 									"type": "file",
-									"src": "/F:/Downloads/Intro_math.pdf"
+									"src": "/F:/Downloads/Horários Matemática 2021_.pdf"
 								},
 								{
 									"key": "title",
@@ -193,7 +193,7 @@
 								},
 								{
 									"key": "tags",
-									"value": "matematica, função, probabilidade",
+									"value": "portugues, ebraicos, alemão",
 									"type": "text"
 								}
 							]
@@ -294,30 +294,6 @@
 							"path": [
 								"document",
 								"615af7297ee6632ee83d26cb"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Adm List",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "x-access-token",
-								"value": "{{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{address}}/document/adm",
-							"host": [
-								"{{address}}"
-							],
-							"path": [
-								"document",
-								"adm"
 							]
 						}
 					},
@@ -448,22 +424,128 @@
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "API routes",
+			"item": [
 				{
-					"name": "Adm_List",
+					"name": "User List",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{address}}/user/adm",
+							"raw": "{{address}}/user/api",
 							"host": [
 								"{{address}}"
 							],
 							"path": [
 								"user",
-								"adm"
+								"api"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "Document List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}/document/api",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"document",
+								"api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Document Related",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tags\" : []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{address}}/document/api/related",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"document",
+								"api",
+								"related"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Document Get Tags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{address}}/document/api/tags",
+							"host": [
+								"{{address}}"
+							],
+							"path": [
+								"document",
+								"api",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report Dev",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
 					},
 					"response": []
 				}
