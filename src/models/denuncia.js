@@ -28,6 +28,6 @@ const DenunciaShema = new mongoose.Schema({
     ],
 });
 
-DocumentoSchema.set({ autoIndex: false });
+DenunciaShema.set({ autoIndex: false });
 
 module.exports = mongoose.model("Denuncia", DenunciaShema);

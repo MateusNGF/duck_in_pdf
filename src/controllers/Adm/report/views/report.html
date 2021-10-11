@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Report Dev</title>
+        <style>
+            * {
+                margin: none;
+                background-color: #efefef;
+            }
+            form {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 30vw;
+                min-width: 30vw;
+                height: 100vh;
+                align-items: center;
+                margin: 0px auto;
+            }
+            form .form-body {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+            }
+
+            form .form-body input {
+                margin-bottom: 20px;
+                padding: 5px 20px;
+                border-radius: 4px;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <div class="form-header">
+                <h1>Report bugs and errors. </h1>
+            </div>
+            <div class="form-body">
+                <input type="text" name="form-email" placeholder="Email" />
+                <input
+                    type="url"
+                    name="form-github"
+                    placeholder="your GitHub"
+                />
+                <div class="form-body-child">
+                    <input type="text" name="form-name" placeholder="Name" />
+                    <input
+                        type="range"
+                        name="form-risk"
+                        placeholder="Ricos"
+                        required
+                    />
+                </div>
+                <input
+                    type="text"
+                    name="form-menssage"
+                    placeholder="Describe the situacion"
+                    required
+                />
+                <button type="submit">Send Report</button>
+            </div>
+        </form>
+    </body>
+</html>

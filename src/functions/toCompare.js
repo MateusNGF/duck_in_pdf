@@ -10,7 +10,7 @@ const value = require('./Value')
 
 exports.keys = (req = [], obj = {}, security = true) => {
     if (value.isNull(req)) { throw {dev : true,message: `É preciso informar os requisitos para validação`}}
-    if (value.isNull(obj)) { throw {dev : true, message: `É preciso informar os dados para validação`} }
+    if (value.isNull(obj)) { throw {message: `É preciso informar os dados para validação`} }
     
     if (security) {
         for (let param in Object.keys(req)) {
