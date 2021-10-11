@@ -6,7 +6,7 @@ const { multerConfig } = require("../configs");
 
 const controllAdm = require("../controllers/Adm");
 const controllDoc = require("../controllers/Documento");
-const controllInt = require("../controllers/documento/interacoes");
+const controllInt = require("../controllers/Documento/interacoes");
 
 /**
  * Rotas para gerenciamento dos documentos.
