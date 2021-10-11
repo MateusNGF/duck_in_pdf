@@ -1,5 +1,5 @@
-const value = require('./Value')
 
+const value = require('./value')
 /**
  * Verifica se as keys de um Objet contem os requisitos passado. 
  * @param { Array } requeriments define as keys necessaria
