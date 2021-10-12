@@ -1,3 +1,3 @@
 module.exports = {
-    "Dev": require('./dev'),
+    "Dev": require('./render_page'),
 }

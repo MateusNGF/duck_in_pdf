@@ -58,7 +58,7 @@ app.use('/user', rotas.usuario)
  * Rotas relacionadas com Administação e Segurança
  * 
  */
-app.get("/api/report/dev", controllerADM.Report.Dev);
+app.get("/api/report/dev*", controllerADM.Report.Dev);
 
 module.exports = app;
 

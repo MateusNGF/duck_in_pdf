@@ -15,7 +15,7 @@ module.exports = {
 
 
     /**
-     *  Verifica se os valore passado é vazio ou indefinido, valida com Array ou String
+     * Verifica se os valore passado é vazio ou indefinido, valida com Array ou String
      * @param input recebe o valor a ser verificado
      * @returns { Boolean } retorna True se não houver valor
      */

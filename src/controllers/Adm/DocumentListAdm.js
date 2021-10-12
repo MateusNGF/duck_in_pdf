@@ -2,7 +2,7 @@ const { sendError } = require("../../functions");
 const { Documento } = require("../../models");
 
 module.exports = (req, res) => {
-    Documento.find()
+    Documento.find().sort()
         .then((docs) => {
             res.status(200).json(docs);
         })

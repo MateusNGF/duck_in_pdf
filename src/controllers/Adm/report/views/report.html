@@ -34,7 +34,7 @@
         </style>
     </head>
     <body>
-        <form>
+        <form method="post" onsubmit="sendReport" >
             <div class="form-header">
                 <h1>Report bugs and errors. </h1>
             </div>
@@ -48,6 +48,7 @@
                 <div class="form-body-child">
                     <input type="text" name="form-name" placeholder="Name" />
                     <input
+
                         type="range"
                         name="form-risk"
                         placeholder="Ricos"
@@ -63,5 +64,11 @@
                 <button type="submit">Send Report</button>
             </div>
         </form>
+
+        <script>
+            function sendReport(body) {
+                console.log(body)
+            }
+        </script>
     </body>
 </html>
