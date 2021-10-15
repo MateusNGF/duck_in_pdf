@@ -1,19 +1,28 @@
-require('dotenv').config()
-const sendError = require('./sendError')
-const jwt = require('jsonwebtoken')
+require("dotenv").config();
+const sendError = require("./sendError");
+const jwt = require("jsonwebtoken");
 
 /**
  *  Faz a verificação da existencia do parametro
  * @param {*} headerV informar o campo do token
  * @return { Error } se não tiver retornar um throw
  */
-function hasToken(headerV) {
-    if (!headerV) {
+
+/**
+ * Valida se esta recebendo o token no Authorization ou no Header.
+ * @param {*} req Corpo da requisição Express
+ * @returns Token ou Throw
+ */
+function getToken(req) {
+    if (req.headers["x-access-token"]) {
+        return req.headers["x-access-token"];
+    } else if (req.headers["authorization"]) {
+        return req.headers["authorization"].toString().replace("Bearer ", "");
+    } else {
         throw {
-            status: false,
             code: 401,
-            message: 'Acesso negado.'
-        }
+            message: "No access key",
+        };
     }
 }
 
@@ -26,33 +35,28 @@ function hasToken(headerV) {
  */
 exports.verify = (req, res, next) => {
     try {
-        var token = req.headers['x-access-token'];
-        hasToken(token)
-        req.headers['user'] = this.decoded(token)
-        next()
+        req.headers["user"] = this.decoded(getToken(req));
+        next();
     } catch (e) {
-        sendError(res, e)
+        sendError(res, e);
     }
-}
+};
 exports.verifyAdm = (req, res, next) => {
     try {
-        var token = req.headers['x-access-token'];
-        hasToken(token)
-
-        let currentUser = this.decoded(token)
+        let currentUser = this.decoded(getToken(req));
         // verifica se o nivel de acesso é administrador
         if (currentUser.access_level != 1)
             throw {
                 code: 401,
-                message: "Acesso negado (ADM)."
-            }
-        
-        req.headers['user'] = currentUser;
-        next()
+                message: "Acesso negado (ADM).",
+            };
+
+        req.headers["user"] = currentUser;
+        next();
     } catch (e) {
-        sendError(res, e)
+        sendError(res, e);
     }
-}
+};
 
 /**
  * Cria um Token assinado pela API
@@ -64,10 +68,9 @@ exports.verifyAdm = (req, res, next) => {
  */
 exports.create = (paramns, time, secret = process.env.JWT_SECRET) => {
     return jwt.sign(paramns, secret, {
-        expiresIn: time
-    })
-}
-
+        expiresIn: time,
+    });
+};
 
 /**
  * Decodifica o token e retorna os dados
@@ -76,16 +79,16 @@ exports.create = (paramns, time, secret = process.env.JWT_SECRET) => {
  * @author Mateus Nicolau
  */
 exports.decoded = (token) => {
-    let s = null
+    let s = null;
     jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) {
             throw {
                 status: false,
                 code: 401,
-                message: 'Chave de acesso invalida.',
-            }
+                message: "Chave de acesso invalida.",
+            };
         }
         s = decoded;
-    })
-    return s
-}
+    });
+    return s;
+};

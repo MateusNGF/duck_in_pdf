@@ -165,12 +165,23 @@
 				{
 					"name": "Upload",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
 								"key": "x-access-token",
 								"value": "{{token}}",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
@@ -179,7 +190,7 @@
 								{
 									"key": "arquivo",
 									"type": "file",
-									"src": "/F:/Downloads/Horários Matemática 2021_.pdf"
+									"src": "/F:/Downloads/Arquivo-exemplo.pdf"
 								},
 								{
 									"key": "title",

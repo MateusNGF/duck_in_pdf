@@ -2,7 +2,7 @@ const { value, toCompare, sendError } = require("../../functions");
 const { Documento, Marcador } = require("../../models");
 
 module.exports = async (req, res) => {
-    try {
+    try {   
         value.paramsNull(req.body);
         toCompare.keys(["title", "description", "tags"], req.body);
 
