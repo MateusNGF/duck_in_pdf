@@ -1,13 +1,10 @@
-
-
-
 module.exports = {
     /**
      * Verfica se no determinado texto recebido contém caracteres especiais
      * @param { String } text recebe o texto a ser verificado
      * @throws { Error } caso encontre retorna um thrown
      */
-    hasCharSpacial(text) {
+    hasCharSpacial(text = String) {
         var expreg = /[\%\$+\@+\$+\!+\$+\$+\&+\¨+\*+\{+\}+\[+\]+\'+\´\`\^\~\/\;']/gi
         if (expreg.test(text)) {throw { message: `Não é permitido caracteres especiais`}}
         return false   
@@ -19,7 +16,7 @@ module.exports = {
      * @param input recebe o valor a ser verificado
      * @returns { Boolean } retorna True se não houver valor
      */
-    isNull(input = '') {
+    isNull(input = String) {
         if (input == null || typeof input == 'undefined' || input.length < 1) {return true}
         if (typeof input == 'object' &&
             ((Array.isArray(input) && input.length == undefined) || Object.keys(input).length < 1)) {

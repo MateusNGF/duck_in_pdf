@@ -16,7 +16,7 @@ const controllInt = require("../controllers/Documento/interacoes");
 rotas.post(
     "/",
     jwt.verify,
-    multer(multerConfig).single("arquivo"),
+    multer(multerConfig).single("document"),
     controllDoc.upload
 );
 rotas.get("/", jwt.verify, controllDoc.user_list);
@@ -41,5 +41,6 @@ rotas.post("/int/vote*", jwt.verify, controllInt.voto.adicionar);
 rotas.get("/api", controllAdm.DocListAll);
 rotas.get("/api/related", controllAdm.Query.findByTag);
 rotas.get("/api/tags", controllAdm.Query.tagsList);
+rotas.get("/api/search", controllAdm.Query.searchByText)
 
 module.exports = rotas;

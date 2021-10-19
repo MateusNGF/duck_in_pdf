@@ -1,11 +1,17 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 
-let URL_FILE = `${process.env.DOMAIN}:${process.env.PORT}`
+let URL_FILE = `${process.env.DOMAIN}:${process.env.PORT}`;
 
 const DocumentoSchema = new mongoose.Schema({
-    title: { type: String, required: true },
-    description: { type: String, required: true },
+    title: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+    },
     postedBy: {
         _id: {
             type: mongoose.Schema.Types.ObjectId,
@@ -13,8 +19,8 @@ const DocumentoSchema = new mongoose.Schema({
         },
         name: {
             type: String,
-            required : true
-        }
+            required: true,
+        },
     },
     name: String,
     key: {
@@ -28,12 +34,10 @@ const DocumentoSchema = new mongoose.Schema({
             _id: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Marcador",
-                index: true,
             },
             name: {
                 type: String,
                 required: true,
-                index: true,
             },
         },
     ],
@@ -58,7 +62,6 @@ const DocumentoSchema = new mongoose.Schema({
                 name: {
                     type: String,
                     required: true,
-                    index: true,
                 },
                 urlProfile: String,
             },
@@ -88,6 +91,10 @@ DocumentoSchema.pre("save", function () {
     }
 });
 
-DocumentoSchema.set({ autoIndex: false });
-
+DocumentoSchema.index({
+    title: "text",
+    description: "text",
+    "comments.content": "text",
+    "tags.name": "text",
+});
 module.exports = mongoose.model("Documento", DocumentoSchema);

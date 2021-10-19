@@ -1,4 +1,5 @@
 module.exports = {
     "findByTag": require('./findByTag'),
-    "tagsList" : require('./tagsList')
+    "tagsList": require('./tagsList'),
+    "searchByText" : require('./searchByText')
 }

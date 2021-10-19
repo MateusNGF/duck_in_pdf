@@ -7,7 +7,6 @@ const morgan        = require('morgan')
 const app = express()
 
 const rotas = require('./routes')
-const controllerADM = require('./controllers/Adm')
 
 mongoose.connect(
     process.env.URL_DB
@@ -52,14 +51,6 @@ app.use(morgan("dev"))
  */
 app.use('/document', rotas.documento)
 app.use('/user', rotas.usuario)
-
-/**
- * A rotas setadas abaixo são especiais.
- * Rotas relacionadas com Administação e Segurança
- * 
- */
-app.get("/api/report/dev*", controllerADM.Report.Dev);
-
 module.exports = app;
 
 
